@@ -3,7 +3,8 @@ module Slacktail
     include HasText
 
     def color
-      data.color
+      # data.color
+      :grn
     end
     
     def fields

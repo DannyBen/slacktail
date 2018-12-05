@@ -7,6 +7,7 @@ group :development do
   gem 'runfile'
   gem 'runfile-tasks'
   gem 'simplecov'
+  gem 'pretty_trace', require: 'pretty_trace/enable-trim'
 end
 
 gemspec

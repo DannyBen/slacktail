@@ -3,26 +3,16 @@ module Slacktail
     include Colsole
 
     def render
-      prefix = "!txtcyn!▌!txtrst! "
+      prefix = "!txt#{color}!▌!txtrst! "
 
-      say "!undcyn!##{channel}     !txtrst!"
+      say "!und#{color}!#{channel}     !txtrst!"
       say prefix.strip
-      
-      text_lines.each do |line|
-        say "#{prefix}#{line}".strip
-      end
 
-      attachments.each do |attachment|
-        # say "#{attachment.color}"
-        prefix = "!txtgrn!▌!txtrst! "
-        attachment.text_lines.each do |line|
+      items.each do |line|
+        if line.is_a? String
           say "#{prefix}#{line}".strip
-        end
-
-        say "#{prefix}".strip if attachment.fields.size > 0
-        
-        attachment.fields.each do |field|
-          say "#{prefix}!txtblu!#{field.key}!txtrst! : !txtgrn!#{field.value}".strip
+        elsif line.is_a? Field
+          say "#{prefix}!txtblu!#{line.key}!txtrst! : !txtgrn!#{line.value}".strip
         end
       end
 

@@ -1,5 +1,7 @@
 module Slacktail
   class Command < MisterBin::Command
+    include HasClient
+
     version VERSION
     summary "Show and follow slack messages in real time"
 
@@ -19,26 +21,15 @@ module Slacktail
 
     def handle(channels = nil)
       say "Connecting... "
-      client = get_client
 
       client.on :message do |data|
-        Message.new(data).render
+        message = Message.new data
+        message.render unless message.empty?
       end
 
       client.on(:hello) { resay "!txtgrn!Ready\n" }
       client.on(:closed) { |_data| say "Goodbye" }
       client.start!
-    end
-
-    def get_client
-      raise ArgumentError 'Please set SLACK_API_TOKEN' unless ENV['SLACK_API_TOKEN']
-
-      Slack.configure do |config|
-        config.token = ENV['SLACK_API_TOKEN']
-      end
-
-      client = Slack::RealTime::Client.new
-      Message.client = client
     end
 
   end
