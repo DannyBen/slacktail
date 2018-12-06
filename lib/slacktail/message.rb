@@ -6,12 +6,30 @@ module Slacktail
       @channel ||= channel!
     end
 
+    def pure_channel
+      channel.gsub '#', ''
+    end
+
     def color
       attachments.any? ? attachments.first.color : :cyn
     end
 
     def items
       @items ||= items!
+    end
+
+    def empty?
+      items.empty?
+    end
+
+    def user
+      if data.username
+        data.username
+      elsif data.bot_id
+        client.bots[data.bot_id].name
+      else
+        "anonymous"
+      end
     end
 
   private

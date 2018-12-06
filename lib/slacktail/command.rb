@@ -14,22 +14,27 @@ module Slacktail
     example "slacktail general debug"
 
     def run(args)
-      handle args['CHANNELS']
-    end
+      @channels = args['CHANNELS']
 
-  private
-
-    def handle(channels = nil)
       say "Connecting... "
 
       client.on :message do |data|
-        message = Message.new data
-        message.render unless message.empty?
+        @message = Message.new data
+        @message.render unless skip?
       end
 
       client.on(:hello) { resay "!txtgrn!Ready\n" }
       client.on(:closed) { |_data| say "Goodbye" }
       client.start!
+    end
+
+  private
+
+    def skip?
+      return true if @message.empty?
+      return false if @channels.empty?
+      return false if @channels.include? @message.pure_channel
+      return true
     end
 
   end

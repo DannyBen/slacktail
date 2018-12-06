@@ -11,9 +11,5 @@ module Slacktail
     def text_lines
       text.split "\n"
     end
-
-    def empty?
-      text_lines.empty?
-    end
   end
 end

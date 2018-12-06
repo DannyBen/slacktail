@@ -5,7 +5,9 @@ module Slacktail
     def render
       prefix = "!txt#{color}!▌!txtrst! "
 
-      say "!und#{color}!#{channel}     !txtrst!"
+      now = Time.now.strftime "%H:%M"
+
+      say "!und#{color}!#{now} @#{user.ljust 20} #{channel}!txtrst!"
       say prefix.strip
 
       items.each do |line|
