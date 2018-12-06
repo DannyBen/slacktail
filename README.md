@@ -48,6 +48,29 @@ Follow specific channels:
     
     $ slacktail general development lobby
 
+Full Usage Help:
+
+    $ slacktail --help
+    Show and follow slack messages in real time
+
+    Usage:
+      slacktail [CHANNELS...]
+      slacktail (-h|--help|--version)
+
+    Options:
+      -h --help
+        Show this help
+
+      --version
+        Show version number
+
+    Parameters:
+      CHANNELS
+        Channels to follow
+
+    Examples:
+      slacktail
+      slacktail general debug
 
 
 ---
