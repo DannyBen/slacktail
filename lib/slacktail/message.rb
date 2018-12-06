@@ -11,7 +11,11 @@ module Slacktail
     end
 
     def color
-      attachments.any? ? attachments.first.color : :cyn
+      if attachments.any?
+        attachments.first.color.to_colsole_color
+      else
+        :cyn
+      end
     end
 
     def items
