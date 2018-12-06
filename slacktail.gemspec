@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.name        = 'slacktail'
   s.version     = Slacktail::VERSION
   s.date        = Date.today.to_s
-  s.summary     = "Command line tool for following slack messages in real time"
-  s.description = "Slacktail is a single-purpose command line utility for follwoing messages sent to your Slack organization chat."
+  s.summary     = "Command line utility for following your Slack chat from the terminal"
+  s.description = "Slacktail is a single-purpose command line utility for following messages sent to your Slack organization chat."
   s.authors     = ["Danny Ben Shitrit"]
   s.email       = 'db@dannyben.com'
   s.files       = Dir['README.md', 'lib/**/*.*']
