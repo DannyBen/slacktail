@@ -3,6 +3,14 @@ require 'spec_helper'
 describe Message do
   before { Client.default = Mocks::Client.new }
 
+  describe '#text' do
+    subject { described_class.new Mocks::Message.new message: "<@luke-id> joined channel" }
+
+    it "evaluates user IDs" do
+      expect(subject.text).to eq "@Luke joined channel"
+    end
+  end
+
   describe '#color' do
     context "with attachments" do
       subject { described_class.new Mocks::Message.new }
@@ -16,13 +24,13 @@ describe Message do
       subject { described_class.new Mocks::Message.new attachments: false }
 
       it "reutrns a default color" do
-        expect(subject.color).to eq :cyn
+        expect(subject.color).to eq :rst
       end
     end
   end
 
   describe '#user' do
-    context "when the message has a username" do
+    context "when the message has a user" do
       subject { described_class.new Mocks::Message.new }
 
       it "reutrns it" do

@@ -5,5 +5,5 @@
 /doc
 /gems
 /Gemfile.lock
-/debug.rb
+/debug*
 *.gem

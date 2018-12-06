@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'slacktail'
+require 'pretty_trace/enable-trim'
 
 runner = MisterBin::Runner.new handler: Slacktail::Command
 

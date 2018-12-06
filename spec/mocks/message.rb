@@ -18,12 +18,12 @@ module Slacktail
         @message
       end
 
-      def username
-        @user == :user ? "Luke" : nil
+      def user
+        @user == :user ? "luke-id" : nil
       end
 
       def bot_id
-        @user == :bot ? "R2D2" : nil
+        @user == :bot ? "r2d2-id" : nil
       end
 
       def channel

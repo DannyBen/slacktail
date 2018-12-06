@@ -20,6 +20,7 @@ module Slacktail
       say "Connecting... " if Client.can_connect?
 
       client.on :message do |data|
+        # File.write 'debug.yml', data.to_yaml
         @message = Message.new data
         @message.render unless skip?
       end

@@ -1,6 +1,6 @@
 module Slacktail
   class Message < Base
-    include MessageView, HasText, HasClient
+    include MessageView, HasText
 
     def channel
       @channel ||= channel!
@@ -27,13 +27,13 @@ module Slacktail
     end
 
     def user
-      if data.username
-        data.username
+      result = if data.user
+        client.users[data.user]&.name
       elsif data.bot_id
-        client.bots[data.bot_id].name
-      else
-        "anonymous"
+        client.bots[data.bot_id]&.name
       end
+
+      result || "anonymous"
     end
 
     def attachments
