@@ -13,8 +13,9 @@ module Slacktail
     example "slacktail"
     example "slacktail general debug"
 
-    def run(args)
-      @channels = args['CHANNELS']
+    def run(args = nil)
+      args ||= {}
+      @channels = args['CHANNELS'] || []
 
       say "Connecting... "
 

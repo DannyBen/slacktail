@@ -36,11 +36,11 @@ module Slacktail
       end
     end
 
-  private
-
     def attachments
       @attachments ||= attachments!
     end
+
+  private
 
     def items!
       result = text_lines
@@ -58,7 +58,9 @@ module Slacktail
 
     def attachments!
       return [] unless data.attachments
-      data.attachments.map { |attachment| Attachment.new attachment }
+      data.attachments.map do |attachment| 
+        Attachment.new attachment
+      end
     end
   end
 

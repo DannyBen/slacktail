@@ -6,6 +6,7 @@ require 'bundler'
 Bundler.require :default, :development
 
 require 'mister_bin'
+requires 'mocks'
 
 include Slacktail
 require_relative 'spec_mixin'
