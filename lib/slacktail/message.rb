@@ -14,7 +14,7 @@ module Slacktail
       if attachments.any?
         attachments.first.color.to_colsole_color
       else
-        :cyn
+        :rst
       end
     end
 
