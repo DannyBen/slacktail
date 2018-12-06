@@ -16,9 +16,13 @@ module Slacktail
     def run(args = nil)
       args ||= {}
       @channels = args['CHANNELS'] || []
-
       say "Connecting... " if Client.can_connect?
+      start_client
+    end
 
+  private
+
+    def start_client
       client.on :message do |data|
         # File.write 'debug.yml', data.to_yaml
         @message = Message.new data
@@ -29,8 +33,6 @@ module Slacktail
       client.on(:closed) { |_data| say "Goodbye" }
       client.start!
     end
-
-  private
 
     def skip?
       return true if @message.empty?

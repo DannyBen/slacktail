@@ -62,6 +62,6 @@ module Slacktail
         Attachment.new attachment
       end
     end
+  
   end
-
 end
