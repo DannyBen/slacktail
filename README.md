@@ -8,6 +8,13 @@ Slacktail
 Slacktail is a single-purpose command line utility for follwoing messages 
 sent to your Slack organization chat.
 
+
+Demo
+--------------------------------------------------
+
+![Demo](https://raw.githubusercontent.com/DannyBen/slacktail/master/demo.gif)
+
+
 Installation
 --------------------------------------------------
 
@@ -37,7 +44,7 @@ Follow all channels:
 
     $ slacktail
 
-Follow specific channels
+Follow specific channels:
     
     $ slacktail general development lobby
 

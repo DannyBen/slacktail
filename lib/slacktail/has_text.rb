@@ -1,5 +1,7 @@
 module Slacktail
   module HasText
+    include Colsole
+
     def text
       @text ||= text!
     end
@@ -9,7 +11,7 @@ module Slacktail
     end
 
     def text_lines
-      text.split "\n"
+      word_wrap("   #{text}").split("\n").map(&:strip)
     end
   end
 end

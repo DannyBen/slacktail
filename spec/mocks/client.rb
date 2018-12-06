@@ -1,17 +1,33 @@
 module Slacktail
   module Mocks
     class Client
+      include Colsole
+
+      attr_reader :echo
+
+      def initialize(echo: true)
+        @echo = echo
+      end
+
       def on(event, &block)
-        puts "registered #{event}"
+        puts "registered #{event}" if echo
         hooks[event] = block
       end
 
       def token=(value)
-        puts "token=#{value}"
+        puts "token=#{value}" if echo
       end
 
       def start!
-        puts "starting!"
+        if echo
+          puts "starting!"
+        else
+          # actual simulation of a client connection
+          # :nocov:
+          sleep 1
+          resay "!txtgrn!Ready\n"
+          # :nocov:
+        end
       end
 
       def hooks

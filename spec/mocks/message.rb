@@ -5,13 +5,17 @@ module Slacktail
     class Message
       include MessageView
 
-      def initialize(attachments: true, user: :user)
+      def initialize(attachments: true, user: :user, message: nil, message2: nil, fields: nil, color: nil)
         @attachments = attachments
         @user = user
+        @message = message || "Main message text"
+        @message2 = message2 || "*Build SUCCESS*: `deploy-website` *#45*"
+        @fields = fields || default_fields
+        @color = color
       end
 
       def text
-        "Main message text"
+        @message
       end
 
       def username
@@ -30,14 +34,21 @@ module Slacktail
         return nil unless @attachments
         [
           OpenStruct.new(OpenStruct.new({
-            text: "*Build SUCCESS*: `deploy-website` *#45*",
-            fields: [
-              OpenStruct.new({ title: "Build Number", value: "45" }),
-              OpenStruct.new({ title: "Environment", value: "Production" }),
-            ]
+            text: @message2,
+            color: @color,
+            fields: @fields.map { |f| OpenStruct.new f }
           }))
         ]
-      end      
+      end
+
+    private
+
+      def default_fields
+        [
+          { title: "Build Number", value: "45" },
+          { title: "Environment", value: "Production" },
+        ]
+      end
     end
   end
 end
