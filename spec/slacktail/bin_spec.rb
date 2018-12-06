@@ -9,9 +9,9 @@ describe 'bin/slacktail' do
     end
   end
 
-  # context "on exception" do
-  #   it "errors gracefuly" do
-  #     expect(`bin/slacktail command that errors 2>&1`).to match_fixture('bin/exception')
-  #   end
-  # end
+  context "with --version" do
+    it "shows version" do
+      expect{ subject.run %w[slacktail --version] }.to output("#{Slacktail::VERSION}\n").to_stdout
+    end
+  end
 end

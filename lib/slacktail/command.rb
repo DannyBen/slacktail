@@ -2,7 +2,7 @@ module Slacktail
   class Command < MisterBin::Command
     include HasClient
 
-    version VERSION
+    version Slacktail::VERSION
     summary "Show and follow slack messages in real time"
 
     usage "slacktail [CHANNELS...]"
