@@ -6,6 +6,10 @@ module Slacktail
         hooks[event] = block
       end
 
+      def token=(value)
+        puts "token=#{value}"
+      end
+
       def start!
         puts "starting!"
       end
@@ -15,9 +19,11 @@ module Slacktail
       end
 
       def channels
-        { 
-          "debug" => OpenStruct.new(name: "debug")
-        }
+        { "debug" => OpenStruct.new(name: "debug") }
+      end
+
+      def bots
+        { "R2D2" => OpenStruct.new(name: "R2D2") }
       end
 
       def simulate(event, data = nil)
@@ -26,3 +32,4 @@ module Slacktail
     end
   end
 end
+

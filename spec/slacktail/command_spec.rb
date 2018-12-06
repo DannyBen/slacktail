@@ -26,7 +26,7 @@ describe Command do
     end
 
     context "when the message is not in a channel we care about" do
-      it "does not show anything", :focus do
+      it "does not show anything" do
         supress_output { subject.run "CHANNELS" => "void" }
         expect { client.simulate :message, message_mock }.to_not output.to_stdout
       end

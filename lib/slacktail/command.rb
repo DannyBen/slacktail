@@ -17,7 +17,7 @@ module Slacktail
       args ||= {}
       @channels = args['CHANNELS'] || []
 
-      say "Connecting... "
+      say "Connecting... " if Client.can_connect?
 
       client.on :message do |data|
         @message = Message.new data
