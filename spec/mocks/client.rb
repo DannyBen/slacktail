@@ -38,8 +38,12 @@ module Slacktail
         { "debug" => OpenStruct.new(name: "debug") }
       end
 
+      def users
+        { "luke-id" => OpenStruct.new(name: "Luke") }
+      end
+
       def bots
-        { "R2D2" => OpenStruct.new(name: "R2D2") }
+        { "r2d2-id" => OpenStruct.new(name: "R2D2") }
       end
 
       def simulate(event, data = nil)

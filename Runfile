@@ -16,6 +16,12 @@ action :console, :c do
   run "bundle exec bin/console"
 end
 
+help   "Test message rendering"
+action :render do
+  Client.default.start_async # in order to have channels and users list
+  Message.new(message_mock).render
+end
+
 help   "Simulated run for recording the demo"
 action :simulate do |args|
   client = Mocks::Client.new echo: false
@@ -47,6 +53,23 @@ action :simulate do |args|
   client.simulate :message, mock
 
   sleep 10
+end
+
+def message_mock
+  OpenStruct.new({
+    text: "Hello tester",
+    # bot_id: 'some-bot-id',
+    user: "some-user-id",
+    attachments: [
+      OpenStruct.new({
+        text: "*Build SUCCESS*: `stage-shutdown` *#45*",
+        fields: [
+          OpenStruct.new({ title: "Build Number", value: "45" }),
+          OpenStruct.new({ title: "Env", value: "Production" }),
+        ]
+      })
+    ]
+  })
 end
 
 require_relative 'debug' if File.exist? 'debug.rb'
