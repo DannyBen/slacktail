@@ -1,6 +1,6 @@
 module Slacktail
   class Message < Base
-    include MessageView, HasText, HasClient
+    include MessageView, HasText
 
     def channel
       @channel ||= channel!

@@ -1,6 +1,6 @@
 module Slacktail
   class Attachment < Base
-    include HasText, HasClient
+    include HasText
 
     def color
       data.color || ''
