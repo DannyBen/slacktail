@@ -6,4 +6,5 @@
 /gems
 /Gemfile.lock
 /debug*
+slacktail_debug.yml
 *.gem
