@@ -24,7 +24,7 @@ module Slacktail
 
     def start_client
       client.on :message do |data|
-        # File.write 'debug.yml', data.to_yaml
+        File.write('slacktail_debug.yml', data.to_yaml) if ENV['SLACKTAIL_DEBUG']
         @message = Message.new data
         @message.render unless skip?
       end

@@ -9,7 +9,7 @@ module Slacktail
 
       items.each do |line|
         if line.is_a? String
-          say "#{prefix}#{line.to_markdown}".strip
+          say "#{prefix}#{line}".strip
         elsif line.is_a? Field
           say "#{prefix}!txtblu!#{line.key}!txtrst! : !txtgrn!#{line.value}".strip
         end

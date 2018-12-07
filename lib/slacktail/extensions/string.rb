@@ -1,8 +1,4 @@
 class String
-  def to_markdown
-    TTY::Markdown.parse self
-  end
-
   def to_colsole_color
     color = {
       '000000' => :blk,

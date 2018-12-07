@@ -1,6 +1,6 @@
-[0m▌[0m [0;36m17:01 : [1;36m@Luke[0;36m : #debug
+[0m▌[0m [0;36m11:39 : [1;36m@Luke[0;36m : #debug
 [0m[0m▌[0m Main message text
-[0m▌[0m [33mBuild SUCCESS[0m: [33mdeploy-website[0m [33m#45[0m
+[0m▌[0m *Build SUCCESS*: `deploy-website` *#45*
 [0m▌[0m [0;34mBuild Number[0m : [0;32m45
 [0m[0m▌[0m [0;34mEnvironment[0m : [0;32mProduction
 [0m

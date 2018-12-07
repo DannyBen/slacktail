@@ -17,44 +17,21 @@ action :console, :c do
 end
 
 help   "Test message rendering"
-action :render do
+usage  "render [YAMLFILE]"
+action :render do |args|
+  file = args['YAMLFILE']
+
   Client.default.start_async # in order to have channels and users list
-  Message.new(message_mock).render
+
+  message = file ? YAML.load_file("#{file}.yml") : message_mock
+  message = Message.new message
+  message.render
 end
 
-help   "Simulated run for recording the demo"
-action :simulate do |args|
-  client = Mocks::Client.new echo: false
-  Client.default = client
-  Command.new.run
-  
-  sleep 2
-  mock = Mocks::Message.new(attachments: false, message: "I’ll never turn to the dark side. You’ve failed, your highness. I am a Jedi, like my father before me.")
-  client.simulate :message, mock
-  
-  sleep 2
-  mock = Mocks::Message.new(message2: '', user: :bot, color: 'ffff00', message: "*Build started* some.production.service.com")
-  client.simulate :message, mock
-  
-  sleep 4
-  mock = Mocks::Message.new(message2: '', user: :bot, color: 'ff0000', message: "**Build FAILED**:\n\nBuild number `45` failed in `production`")
-  client.simulate :message, mock
+require_relative 'demo'
+require_relative 'debug' if File.exist? 'debug.rb'
 
-  sleep 6
-  mock = Mocks::Message.new(attachments: false, message: "Fixed, deploying again")
-  client.simulate :message, mock
-  
-  sleep 3
-  mock = Mocks::Message.new(message2: '', user: :bot, color: 'ffff00', message: "*Build started* some.production.service.com")
-  client.simulate :message, mock
-  
-  sleep 4
-  mock = Mocks::Message.new(message2: '', user: :bot, color: '00ff00', message: "**Build SUCCEEDED**:\n\nBuild number `45` deployed to `production`")
-  client.simulate :message, mock
-
-  sleep 10
-end
-
+# Mock for quick and dirty use with run render
 def message_mock
   OpenStruct.new({
     text: "Hello tester",
@@ -72,4 +49,3 @@ def message_mock
   })
 end
 
-require_relative 'debug' if File.exist? 'debug.rb'
