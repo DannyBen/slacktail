@@ -18,6 +18,10 @@ module Slacktail
         @message
       end
 
+      def username
+        nil
+      end
+
       def user
         @user == :user ? "luke-id" : nil
       end
