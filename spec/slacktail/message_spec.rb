@@ -30,6 +30,14 @@ describe Message do
   end
 
   describe '#user' do
+    context "when the message has a username" do
+      subject { described_class.new Mocks::Message.new user: :username }
+
+      it "reutrns it" do
+        expect(subject.user).to eq 'Yoda'
+      end
+    end
+
     context "when the message has a user" do
       subject { described_class.new Mocks::Message.new }
 

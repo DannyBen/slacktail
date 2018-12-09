@@ -19,7 +19,7 @@ module Slacktail
       end
 
       def username
-        nil
+        @user == :username ? "Yoda" : nil
       end
 
       def user
