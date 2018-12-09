@@ -27,7 +27,9 @@ module Slacktail
     end
 
     def user
-      result = if data.user
+      result = if data.username
+        data.username
+      elsif data.user
         client.users[data.user]&.name
       elsif data.bot_id
         client.bots[data.bot_id]&.name
