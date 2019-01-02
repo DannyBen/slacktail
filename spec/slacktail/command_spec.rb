@@ -1,8 +1,11 @@
 require 'spec_helper'
 
 describe Command do
+  subject { described_class.new args }
+  let(:args) { {} }
   let(:client) { Mocks::Client.new }
   let(:message_mock) { Mocks::Message.new }
+  
   before do
     Client.default = client
   end
@@ -14,8 +17,10 @@ describe Command do
   end
 
   context "with one or more channels" do
+    let(:args) { { 'CHANNELS' => ['debug', 'general'] } }
+
     it "works" do
-      expect{ subject.run 'CHANNELS' => ['debug', 'general'] }.to output_fixture('command/run')
+      expect{ subject.run }.to output_fixture('command/run')
     end
   end
 
@@ -26,8 +31,10 @@ describe Command do
     end
 
     context "when the message is not in a channel we care about" do
+      let(:args) { { "CHANNELS" => "void" } }
+      
       it "does not show anything" do
-        supress_output { subject.run "CHANNELS" => "void" }
+        supress_output { subject.run }
         expect { client.simulate :message, message_mock }.to_not output.to_stdout
       end
     end

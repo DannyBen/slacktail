@@ -13,8 +13,7 @@ module Slacktail
     example "slacktail"
     example "slacktail general debug"
 
-    def run(args = nil)
-      args ||= {}
+    def run
       @channels = args['CHANNELS'] || []
       say "Connecting... " if Client.can_connect?
       start_client
