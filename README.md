@@ -5,7 +5,7 @@ Slacktail
 [![Build Status](https://travis-ci.com/DannyBen/slacktail.svg?branch=master)](https://travis-ci.com/DannyBen/slacktail)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c81fe947a0e4b5bd1bdc/maintainability)](https://codeclimate.com/github/DannyBen/slacktail/maintainability)
 
-Slacktail is a single-purpose command line utility for follwoing messages 
+Slacktail is a single-purpose command line utility for following messages 
 sent to your Slack organization chat.
 
 
