@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 require 'slacktail'
+require 'colsole'
+include Colsole
 
 runner = MisterBin::Runner.new handler: Slacktail::Command
 
