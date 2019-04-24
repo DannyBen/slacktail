@@ -1,13 +1,12 @@
 language: ruby
 
 rvm:
-  - "2.4.0"
-  - "2.5.0"
-
-notifications:
-  email: false
+- "2.4.0"
+- "2.5.0"
+- "2.6.0"
 
 before_install:
-  - gem install bundler
+- gem install bundler
 
-script: bundle exec rspec
+script:
+- bundle exec rspec
