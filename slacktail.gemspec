@@ -17,9 +17,14 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.required_ruby_version = ">= 2.4.0"
 
-  s.add_runtime_dependency 'async-websocket', '~> 0.6'
   s.add_runtime_dependency 'mister_bin', '~> 0.6'
   s.add_runtime_dependency 'colsole', '~> 0.5', '>= 0.5.3'
   s.add_runtime_dependency 'requires', '~> 0.1'
-  s.add_runtime_dependency 'slack-ruby-client', '~> 0.13'
+  
+  # Reason for locking to 0.14.1:
+  # ref: https://github.com/slack-ruby/slack-ruby-client/issues/272
+  s.add_runtime_dependency 'slack-ruby-client', '~> 0.13', '<= 0.14.1'
+
+  # Other versions are incompatible
+  s.add_runtime_dependency 'async-websocket', '~> 0.8.0'
 end
