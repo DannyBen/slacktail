@@ -2,7 +2,7 @@ Slacktail
 ==================================================
 
 [![Gem Version](https://badge.fury.io/rb/slacktail.svg)](https://badge.fury.io/rb/slacktail)
-[![Build Status](https://travis-ci.com/DannyBen/slacktail.svg?branch=master)](https://travis-ci.com/DannyBen/slacktail)
+[![Build Status](https://github.com/DannyBen/slacktail/workflows/Test/badge.svg)](https://github.com/DannyBen/slacktail/actions?query=workflow%3ATest)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c81fe947a0e4b5bd1bdc/maintainability)](https://codeclimate.com/github/DannyBen/slacktail/maintainability)
 
 Slacktail is a single-purpose command line utility for following messages 
