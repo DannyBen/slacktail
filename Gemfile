@@ -3,7 +3,7 @@ source "https://rubygems.org"
 group :development do
   gem 'byebug'
   gem 'rspec'
-  gem 'rspec_fixtures'
+  gem 'rspec_approvals'
   gem 'runfile'
   gem 'runfile-tasks'
   gem 'simplecov'

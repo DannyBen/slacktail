@@ -5,7 +5,7 @@ describe 'bin/slacktail' do
 
   context "with --help" do
     it "shows usage" do
-      expect{ subject.run %w[slacktail --help] }.to output_fixture('bin/help')
+      expect{ subject.run %w[slacktail --help] }.to output_approval('bin/help')
     end
   end
 

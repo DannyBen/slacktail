@@ -12,7 +12,7 @@ describe Command do
 
   context "without arguments" do
     it "works" do
-      expect{ subject.run }.to output_fixture('command/run')
+      expect{ subject.run }.to output_approval('command/run')
     end
   end
 
@@ -20,14 +20,14 @@ describe Command do
     let(:args) { { 'CHANNELS' => ['debug', 'general'] } }
 
     it "works" do
-      expect{ subject.run }.to output_fixture('command/run')
+      expect{ subject.run }.to output_approval('command/run')
     end
   end
 
   context "on message event" do
     it "works" do
       supress_output { subject.run }
-      expect { client.simulate :message, message_mock }.to output_fixture('command/message').diff(4)
+      expect { client.simulate :message, message_mock }.to output_approval('command/message').diff(4)
     end
 
     context "when the message is not in a channel we care about" do
@@ -43,14 +43,14 @@ describe Command do
   context "on hello event" do
     it "works" do
       supress_output { subject.run }
-      expect { client.simulate :hello }.to output_fixture('command/hello')
+      expect { client.simulate :hello }.to output_approval('command/hello')
     end
   end
 
   context "on closed event" do
     it "works" do
       supress_output { subject.run }
-      expect { client.simulate :closed }.to output_fixture('command/closed')
+      expect { client.simulate :closed }.to output_approval('command/closed')
     end
   end
 
