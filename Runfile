@@ -13,7 +13,7 @@ RunfileTasks::Testing.rspec
 
 help   "Run interactive console"
 action :console, :c do
-  run "bundle exec bin/console"
+  system "bundle exec bin/console"
 end
 
 help   "Test message rendering"
@@ -30,9 +30,9 @@ end
 
 help   "Generate changelog and append old changelog"
 action :changelog do
-  run "git changelog --save"
+  system "git changelog --save"
   # append older changelog (prior to switching to git-changelog)
-  run "cat .changelog.old.md >> CHANGELOG.md"
+  system "cat .changelog.old.md >> CHANGELOG.md"
 end
 
 require_relative 'demo'
