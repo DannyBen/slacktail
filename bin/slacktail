@@ -7,6 +7,9 @@ runner = MisterBin::Runner.new handler: Slacktail::Command
 
 begin
   exit runner.run ARGV
+rescue Interrupt => e
+  say "\nGoodbye"
+  exit
 rescue => e
   puts e.backtrace.reverse if ENV['DEBUG']
   say! "!txtred!#{e.class}: #{e.message}"
