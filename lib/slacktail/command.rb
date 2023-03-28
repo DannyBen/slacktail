@@ -27,7 +27,7 @@ module Slacktail
         @message.render unless skip?
       end
 
-      client.on(:hello) { resay "!txtgrn!Ready\n" }
+      client.on(:hello) { say "g`Ready`\n", replace: true }
       client.on(:closed) { |_data| say "Goodbye" }
       client.start!
     end
