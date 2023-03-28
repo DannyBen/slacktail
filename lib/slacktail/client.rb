@@ -13,7 +13,16 @@ module Slacktail
 
       def default!
         raise ArgumentError, 'Please set SLACK_API_TOKEN' unless can_connect?
-        Slack.configure { |c| c.token = token }
+        
+        Slack.configure do |config|
+          config.token = token
+        end
+
+        Slack::RealTime::Client.configure do |config|
+          config.store_class = Slack::RealTime::Stores::Store
+          config.store_options = { caches: :all }
+        end
+
         Slack::RealTime::Client.new
       end
 
