@@ -1,13 +1,12 @@
 source "https://rubygems.org"
 
-group :development do
-  gem 'byebug'
-  gem 'rspec'
-  gem 'rspec_approvals'
-  gem 'runfile'
-  gem 'runfile-tasks'
-  gem 'simplecov'
-  gem 'pretty_trace', require: 'pretty_trace/enable-trim'
-end
+gem 'byebug'
+gem 'lp'
+gem 'pretty_trace', require: 'pretty_trace/enable-trim'
+gem 'rspec'
+gem 'rspec_approvals'
+gem 'runfile', require: false
+gem 'runfile-tasks', require: false
+gem 'simplecov', require: false
 
 gemspec
