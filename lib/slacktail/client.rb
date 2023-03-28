@@ -11,8 +11,6 @@ module Slacktail
         !!token
       end
 
-    private
-
       def default!
         raise ArgumentError, 'Please set SLACK_API_TOKEN' unless can_connect?
         
