@@ -25,7 +25,7 @@ module Slacktail
           # actual simulation of a client connection
           # :nocov:
           sleep 1
-          resay "!txtgrn!Ready\n"
+          say "g`Ready`\n", replace: true
           # :nocov:
         end
       end

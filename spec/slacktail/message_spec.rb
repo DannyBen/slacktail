@@ -16,7 +16,7 @@ describe Message do
       subject { described_class.new Mocks::Message.new }
 
       it "reutrns the color of the first attachment" do
-        expect(subject.color).to eq :rst
+        expect(subject.color).to eq :n
       end
     end
 
@@ -24,7 +24,7 @@ describe Message do
       subject { described_class.new Mocks::Message.new attachments: false }
 
       it "reutrns a default color" do
-        expect(subject.color).to eq :rst
+        expect(subject.color).to eq :n
       end
     end
   end

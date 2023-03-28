@@ -1,18 +1,18 @@
 class String
   def to_colsole_color
     color = {
-      '000000' => :blk,
-      'ff0000' => :red,
-      '00ff00' => :grn,
-      '0000ff' => :blu,
-      'ffff00' => :ylw,
-      'ff00ff' => :pur,
-      '00ffff' => :cyn,
-      'ffffff' => :wht,
+      '000000' => :k,
+      'ff0000' => :r,
+      '00ff00' => :g,
+      '0000ff' => :b,
+      'ffff00' => :y,
+      'ff00ff' => :m,
+      '00ffff' => :c,
+      'ffffff' => :w,
     }
 
     key = self.downcase.round_color
-    color.keys.include?(key) ? color[key] : :rst
+    color.keys.include?(key) ? color[key] : :n
   end
 
   def hex_color?

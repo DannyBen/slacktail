@@ -3,15 +3,15 @@ module Slacktail
     include Colsole
 
     def render
-      prefix = "!txt#{color}!▌!txtrst! "
+      prefix = "#{color}`▌` "
       now = Time.now.strftime "%H:%M"
-      say "#{prefix}!txtcyn!#{now} : !bldcyn!@#{user}!txtcyn! : #{channel}".strip
+      say "#{prefix}c`#{now}` : cb`@#{user}` c`: #{channel}`".strip
 
       items.each do |line|
         if line.is_a? String
           say "#{prefix}#{line}".strip
         elsif line.is_a? Field
-          say "#{prefix}!txtblu!#{line.key}!txtrst! : !txtgrn!#{line.value}".strip
+          say "#{prefix}b`#{line.key}` : g`#{line.value}`".strip
         end
       end
 
