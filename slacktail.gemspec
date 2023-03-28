@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'mister_bin', '~> 0.7'
   s.add_runtime_dependency 'colsole', '~> 0.8', '>= 0.8.1'
   s.add_runtime_dependency 'requires', '~> 1.0'
-  s.add_runtime_dependency 'slack-ruby-client', '~> 2.0', '< 2.1'
+  s.add_runtime_dependency 'slack-ruby-client', '~> 1.1'
 
   # Other versions are incompatible
   s.add_runtime_dependency 'async-websocket', '~> 0.8.0'
