@@ -1,6 +1,15 @@
 Change Log
 ========================================
 
+v0.3.0 - 2023-03-29
+----------------------------------------
+
+- Upgrade dependencies
+- Downgrade slack client version
+- Adjust for new Colsole
+- Adapt for slack client 2.x
+
+
 v0.2.4 - 2023-01-20
 ----------------------------------------
 
