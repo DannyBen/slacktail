@@ -1,6 +1,8 @@
 Slacktail
 ==================================================
 
+![repocard](https://repocard.dannyben.com/svg/slacktail.svg)
+
 Slacktail is a single-purpose command line utility for following messages 
 sent to your Slack organization chat.
 
